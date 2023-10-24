@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "watch": "webpack --watch",
-    "watchAll": "jest --watchAll"
+    "watchAll": "jest --watchAll",
+    "pre-deploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
+    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "^5.5.3",
     "jest": "^29.7.0",
     "prettier": "3.0.3",
