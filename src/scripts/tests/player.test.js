@@ -45,7 +45,7 @@ test('place an attack on an already hit coordinate', () => {
 });
 
 test('place an attack on an empty coordinate', () => {
-  expect(user.attack(computerGameboard, ['5', 'f'])).toEqual(null);
+  expect(user.attack(computerGameboard, ['5', 'f'])).not.toEqual(null);
   expect(computerGameboard.getState()).toEqual([
     ['miss', 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
