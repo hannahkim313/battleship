@@ -46,11 +46,14 @@ const Gameboard = () => {
     }
   };
 
+  const isAllSunk = () => ships.every((ship) => ship.isSunk());
+
   const getState = () => state.map((row) => row.slice());
 
   return {
     placeShip,
     receiveAttack,
+    isAllSunk,
     getState,
   };
 };
