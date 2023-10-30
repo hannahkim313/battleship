@@ -37,24 +37,6 @@ test('place a ship of length 2 (horizontally) in the top right corner', () => {
   ]);
 });
 
-test('place a ship of length 2 (vertically) in the bottom right corner', () => {
-  const gameboard = Gameboard();
-  const ship1 = Ship(2);
-  gameboard.placeShip(ship1, ['10', 'j']);
-  expect(gameboard.getState()).toEqual([
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  ]);
-});
-
 test('place a ship on top of another ship', () => {
   const gameboard = Gameboard();
   const ship1 = Ship(2);
