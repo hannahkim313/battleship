@@ -5,9 +5,12 @@ const Ship = (length) => {
 
   const isSunk = () => hits === length;
 
+  const size = () => length;
+
   return {
     hit,
     isSunk,
+    size,
   };
 };
 
