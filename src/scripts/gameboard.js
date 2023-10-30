@@ -32,10 +32,25 @@ const Gameboard = () => {
     }
   };
 
+  const receiveAttack = (coords) => {
+    const [row, letter] = coords;
+    const column = letters.indexOf(letter);
+    const position = state[row - 1][column];
+
+    if (position === 0) {
+      state[row - 1][column] = 'miss';
+    } else if (position !== 'hit') {
+      const ship = state[row - 1][column];
+      ship.hit();
+      state[row - 1][column] = 'hit';
+    }
+  };
+
   const getState = () => state.map((row) => row.slice());
 
   return {
     placeShip,
+    receiveAttack,
     getState,
   };
 };
