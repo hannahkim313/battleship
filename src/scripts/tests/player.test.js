@@ -79,7 +79,7 @@ test('place an attack on a ship', () => {
 test('place an attack made by the computer', () => {
   const computer = Player();
   computer.attack(userGameboard);
-  expect(userGameboard.getState()).not.toBe([
+  expect(userGameboard.getState()).not.toEqual([
     [userShip, userShip, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
