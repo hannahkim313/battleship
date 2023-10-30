@@ -29,6 +29,8 @@ const Gameboard = () => {
     if (column + ship.size() < 11 && isEmpty(coords, ship.size())) {
       ships.push(ship);
       state[row - 1].fill(ship, column, column + ship.size());
+    } else {
+      return null;
     }
   };
 
