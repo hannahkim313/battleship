@@ -1,0 +1,29 @@
+/******************************************************************************/
+/* Selectors for general elements start here.
+/******************************************************************************/
+
+:root {
+  --color-text-1: #384351;
+  --color-text-1-inverted: #ffffff;
+  --color-brand-1: #3868a6;
+  --color-brand-2: #5abfbf;
+  --color-brand-3: #f2c335;
+  --color-brand-4: #f2aa52;
+  --color-brand-5: #d95252;
+  --color-neutral-1: #dfdfdf;
+  --color-neutral-2: #d2d2d2;
+  --color-neutral-3: #c6c6c6;
+}
+
+body {
+  color: var(--color-text-1);
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
