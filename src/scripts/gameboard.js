@@ -39,9 +39,11 @@ const Gameboard = () => {
     const column = letters.indexOf(letter);
     const position = state[row - 1][column];
 
-    if (position === 0) {
+    if (position === 'hit' || position === 'miss') {
+      return null;
+    } else if (position === 0) {
       state[row - 1][column] = 'miss';
-    } else if (position !== 'hit') {
+    } else {
       const ship = state[row - 1][column];
       ship.hit();
       state[row - 1][column] = 'hit';
