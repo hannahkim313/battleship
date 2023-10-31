@@ -4,8 +4,350 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="shortcut icon" type="image/png" href=<%=require("./img/logo.png")%>>
 </head>
 <body>
-  <!-- Add content here -->
+  <header>
+    <img class="logo" src=<%=require("./img/logo.png")%> alt="A ship icon">
+    <h1>Battleship</h1>
+  </header>
+  <main>
+    <article class="user-container">
+      <h2>Your Fleet</h2>
+      <div class="board">
+        <div class="column">
+          <p>A</p>
+        </div>
+        <div class="column">
+          <p>B</p>
+        </div>
+        <div class="column">
+          <p>C</p>
+        </div>
+        <div class="column">
+          <p>D</p>
+        </div>
+        <div class="column">
+          <p>E</p>
+        </div>
+        <div class="column">
+          <p>F</p>
+        </div>
+        <div class="column">
+          <p>G</p>
+        </div>
+        <div class="column">
+          <p>H</p>
+        </div>
+        <div class="column">
+          <p>I</p>
+        </div>
+        <div class="column">
+          <p>J</p>
+        </div>
+        <div class="row">
+          <p>1</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>2</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>3</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>4</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>5</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>6</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>7</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>8</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>9</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>10</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </article>
+    <article class="opponent-container">
+      <h2>Opponent's Fleet</h2>
+      <div class="board">
+        <div class="column">
+          <p>A</p>
+        </div>
+        <div class="column">
+          <p>B</p>
+        </div>
+        <div class="column">
+          <p>C</p>
+        </div>
+        <div class="column">
+          <p>D</p>
+        </div>
+        <div class="column">
+          <p>E</p>
+        </div>
+        <div class="column">
+          <p>F</p>
+        </div>
+        <div class="column">
+          <p>G</p>
+        </div>
+        <div class="column">
+          <p>H</p>
+        </div>
+        <div class="column">
+          <p>I</p>
+        </div>
+        <div class="column">
+          <p>J</p>
+        </div>
+        <div class="row">
+          <p>1</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>2</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>3</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>4</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>5</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>6</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>7</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>8</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>9</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="row">
+          <p>10</p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <a href="https://github.com/hannahkim313">
+      <img src=<%=require("./img/code-blocks.svg")%> alt="Code blocks icon">
+      <p>Hannah Kim</p>
+    </a>
+  </footer>
 </body>
 </html>
