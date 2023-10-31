@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-		clean: true,
+    clean: true,
   },
   mode: 'development',
   devtool: 'inline-source-map',
@@ -14,7 +14,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Battleship',
       template: 'src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
     }),
   ],
   module: {
