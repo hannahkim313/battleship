@@ -5,3 +5,4 @@ This project exercise, created by The Odin Project, is an application of the gam
 
 ## Credits
 * Ship icon from [Freepik](https://www.freepik.com/icon/ship_4814742#fromView=search&term=ship+logo&page=1&position=62&track=ais)
+* Miscellaneous icons from [Google Fonts](https://fonts.google.com/)
