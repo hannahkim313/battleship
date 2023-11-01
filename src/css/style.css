@@ -6,6 +6,9 @@
   --color-text-1: #384351;
   --color-text-1-inverted: #ffffff;
   --color-brand-1: #3868a6;
+  --color-brand-1a: #7295c2;
+  --color-brand-1b: #dfe7f1;
+  --color-brand-1c: #cdd5df;
   --color-brand-2: #5abfbf;
   --color-brand-3: #f2c335;
   --color-brand-4: #f2aa52;
@@ -17,6 +20,14 @@
 
 body {
   color: var(--color-text-1);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 button {
@@ -26,4 +37,130 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+/******************************************************************************/
+/* Selectors for the header start here.
+/******************************************************************************/
+
+header {
+  color: var(--color-text-1-inverted);
+  background-color: var(--color-brand-1a);
+  padding: 1rem;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  gap: 1rem;
+}
+
+.logo {
+  width: 3rem;
+}
+
+/******************************************************************************/
+/* Selectors for the main section start here.
+/******************************************************************************/
+
+main {
+  padding: 3rem 0;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/******************************************************************************/
+/* Selectors for the gameboards start here.
+/******************************************************************************/
+
+.gameboard-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+  color: var(--color-text-1-inverted);
+  background-color: var(--color-brand-5);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(11, 2rem);
+  grid-template-rows: repeat(11, 2rem);
+  justify-items: center;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.box:not(.filler) {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-brand-1b);
+  border-radius: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user .box:not(.filler):hover {
+  cursor: default;
+}
+
+.opponent .box:not(.filler):hover {
+  background-color: var(--color-brand-1c);
+  transition: background-color 0.2s ease;
+}
+
+/******************************************************************************/
+/* Selectors for the footer start here.
+/******************************************************************************/
+
+footer {
+  background-color: var(--color-brand-1a);
+  padding: 1rem;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+footer a {
+  color: var(--color-text-1-inverted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+footer img {
+  width: 1.5rem;
+}
+
+/******************************************************************************/
+/* Media queries start here.
+/******************************************************************************/
+
+@media screen and (max-width: 850px) {
+  main {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .user.gameboard-container {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .opponent.gameboard-container {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 }
