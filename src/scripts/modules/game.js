@@ -1,6 +1,7 @@
 import Player from './player';
 import Gameboard from './gameboard';
 import Ship from './ship';
+import { renderGameboard } from './dom';
 
 const startGame = () => {
   const user = Player();
@@ -28,6 +29,8 @@ const startGame = () => {
   computerGameboard.placeShip(computerCruiser, ['8', 'h']);
   computerGameboard.placeShip(computerSubmarine, ['1', 'e']);
   computerGameboard.placeShip(computerDestroyer, ['4', 'j']);
+
+  renderGameboard(userGameboard.getState());
 };
 
 export default startGame;
