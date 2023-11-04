@@ -8,7 +8,7 @@ userGameboard.placeShip(userShip, ['1', 'a']);
 const computerGameboard = Gameboard();
 const computerShip = Ship(2);
 computerGameboard.placeShip(computerShip, ['5', 'd']);
-const user = Player(userGameboard);
+const user = Player();
 user.attack(computerGameboard, ['1', 'a']);
 user.attack(computerGameboard, ['5', 'd']);
 
@@ -77,7 +77,7 @@ test('place an attack on a ship', () => {
 });
 
 test('place an attack made by the computer', () => {
-  const computer = Player(computerGameboard);
+  const computer = Player();
   computer.attack(userGameboard);
   expect(userGameboard.getState()).not.toEqual([
     [userShip, userShip, 0, 0, 0, 0, 0, 0, 0, 0],

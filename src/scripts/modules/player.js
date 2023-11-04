@@ -1,6 +1,4 @@
-const Player = (board) => {
-  const gameboard = board;
-
+const Player = () => {
   const generateCoords = () => {
     const getRandomNum = () => Math.floor(Math.random() * 9);
     const letters = 'abcdefghij';
@@ -17,7 +15,6 @@ const Player = (board) => {
   };
 
   return {
-    gameboard,
     attack,
   };
 };
