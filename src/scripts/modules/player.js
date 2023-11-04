@@ -1,4 +1,6 @@
-const Player = () => {
+const Player = (board) => {
+  const gameboard = board;
+
   const generateCoords = () => {
     const getRandomNum = () => Math.floor(Math.random() * 9);
     const letters = 'abcdefghij';
@@ -6,15 +8,16 @@ const Player = () => {
     return [`${getRandomNum()}`, letters[getRandomNum()]];
   };
 
-  const attack = (board, coords = null) => {
+  const attack = (OppBoard, coords = null) => {
     if (coords === null) {
-      return board.receiveAttack(generateCoords());
+      return OppBoard.receiveAttack(generateCoords());
     }
 
-    return board.receiveAttack(coords);
+    return OppBoard.receiveAttack(coords);
   };
 
   return {
+    gameboard,
     attack,
   };
 };
