@@ -16,19 +16,19 @@ const Gameboard = () => {
 
   const isEmpty = (coords, shipLength) => {
     const [row, letter] = coords;
-    const column = letters.indexOf(letter);
-    const positions = state[row - 1].slice(column, column + shipLength);
+    const col = letters.indexOf(letter);
+    const positions = state[row - 1].slice(col, col + shipLength);
 
     return positions.every((position) => position === 0);
   };
 
   const placeShip = (ship, coords) => {
     const [row, letter] = coords;
-    const column = letters.indexOf(letter);
+    const col = letters.indexOf(letter);
 
-    if (column + ship.size() < 11 && isEmpty(coords, ship.size())) {
+    if (col + ship.size() < 11 && isEmpty(coords, ship.size())) {
       ships.push(ship);
-      state[row - 1].fill(ship, column, column + ship.size());
+      state[row - 1].fill(ship, col, col + ship.size());
     } else {
       return null;
     }
@@ -36,17 +36,17 @@ const Gameboard = () => {
 
   const receiveAttack = (coords) => {
     const [row, letter] = coords;
-    const column = letters.indexOf(letter);
-    const position = state[row - 1][column];
+    const col = letters.indexOf(letter);
+    const position = state[row - 1][col];
 
     if (position === 'hit' || position === 'miss') {
       return null;
     } else if (position === 0) {
-      state[row - 1][column] = 'miss';
+      state[row - 1][col] = 'miss';
     } else {
-      const ship = state[row - 1][column];
+      const ship = state[row - 1][col];
       ship.hit();
-      state[row - 1][column] = 'hit';
+      state[row - 1][col] = 'hit';
     }
   };
 
