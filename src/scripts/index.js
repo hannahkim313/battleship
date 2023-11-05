@@ -1,5 +1,7 @@
 import '../css/reset.css';
 import '../css/style.css';
-import startGame from './modules/game';
+import emitEvents from './events/emit-events';
+import { initializeGame } from './modules/game';
 
-startGame();
+initializeGame();
+emitEvents();
