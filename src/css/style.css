@@ -133,6 +133,11 @@ h2.turn {
   transition: background-color 0.2s ease;
 }
 
+.opponent .box:not(.filler):disabled:hover {
+  cursor: default;
+  background-color: var(--color-brand-1b);
+}
+
 .opponent .box.occupied:hover {
   background-color: var(--color-neutral-3);
   transition: background-color 0.2s ease;

@@ -60,9 +60,23 @@ const updateUserGameboard = (state, coords) => {
   }
 };
 
+const disableOppGameboard = () => {
+  const gameboardLabel = document.querySelector('.turn');
+  const boxes = gameboardLabel.closest('article').querySelectorAll('.box');
+  boxes.forEach((box) => box.setAttribute('disabled', ''));
+};
+
+const enableOppGameboard = () => {
+  const gameboardLabel = document.querySelector('h2:not(.turn)');
+  const boxes = gameboardLabel.closest('article').querySelectorAll('.box');
+  boxes.forEach((box) => box.removeAttribute('disabled'));
+};
+
 export {
   renderGameboard,
   changeActivePlayer,
   updateOpponentGameboard,
   updateUserGameboard,
+  disableOppGameboard,
+  enableOppGameboard,
 };

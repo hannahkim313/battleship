@@ -6,6 +6,8 @@ import {
   renderGameboard,
   updateOpponentGameboard,
   updateUserGameboard,
+  disableOppGameboard,
+  enableOppGameboard,
 } from './dom';
 
 const userCarrier = Ship(5);
@@ -43,17 +45,27 @@ const playRound = (coords) => {
 
     if (computerGameboard.isAllSunk()) {
       // Call showGameOver() from dom module
-    } else {
-      setTimeout(() => {
-        computer.attack(userGameboard);
-        updateUserGameboard(userGameboard.getState(), computer.getLastMove());
-        changeActivePlayer();
-      }, 2000);
 
+      return;
+    }
+
+    disableOppGameboard();
+
+    setTimeout(() => {
+      computer.attack(userGameboard);
+      updateUserGameboard(userGameboard.getState(), computer.getLastMove());
+      changeActivePlayer();
+    }, 2000);
+
+    setTimeout(() => {
       if (userGameboard.isAllSunk()) {
         // Call showGameOver() from dom module
+
+        return;
       }
-    }
+
+      enableOppGameboard();
+    }, 2000);
   }
 };
 
