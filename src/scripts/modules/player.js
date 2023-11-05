@@ -1,9 +1,34 @@
 const Player = () => {
-  const generateCoords = () => {
-    const getRandomNum = () => Math.floor(Math.random() * 9);
-    const letters = 'abcdefghij';
+  const movesMade = [];
 
-    return [`${getRandomNum()}`, letters[getRandomNum()]];
+  const getLastMove = () => movesMade[movesMade.length - 1];
+
+  const generateCoords = () => {
+    const getRandomNum = () => {
+      const min = Math.ceil(1);
+      const max = Math.floor(10);
+
+      return Math.floor(Math.random() * (max - min) + min);
+    };
+
+    const letters = 'abcdefghij';
+    const coords = [`${getRandomNum()}`, letters[getRandomNum()]];
+
+    if (movesMade.length === 0) {
+      movesMade.push(coords);
+
+      return coords;
+    }
+
+    if (
+      movesMade.some((move) => JSON.stringify(move) === JSON.stringify(coords))
+    ) {
+      return generateCoords();
+    } else {
+      movesMade.push(coords);
+
+      return coords;
+    }
   };
 
   const attack = (OppBoard, coords = null) => {
@@ -15,6 +40,7 @@ const Player = () => {
   };
 
   return {
+    getLastMove,
     attack,
   };
 };
