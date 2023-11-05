@@ -37,7 +37,7 @@ const updateOpponentGameboard = (state, coords) => {
   } else {
     box.classList.toggle('occupied');
     const marker = document.createElement('div');
-    marker.classList.add('ship', 'marker');
+    marker.classList.add('hit', 'marker');
     box.appendChild(marker);
   }
 };
