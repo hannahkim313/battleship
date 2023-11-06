@@ -182,9 +182,14 @@ h2.turn {
   background-color: var(--color-brand-1b);
 }
 
-.opponent .box.occupied:hover {
-  background-color: var(--color-neutral-3);
-  transition: background-color 0.2s ease;
+.opponent .box:not(.filler):has(.miss):hover {
+  cursor: default;
+  background-color: var(--color-brand-1b);
+}
+
+.opponent .box:not(.filler):has(.hit):hover {
+  cursor: default;
+  background-color: var(--color-neutral-2);
 }
 
 .marker {
