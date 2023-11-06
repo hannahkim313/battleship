@@ -76,7 +76,7 @@ main {
 /******************************************************************************/
 
 .game-over {
-  width: 40%;
+  width: 30%;
   height: 20%;
   border: none;
   border-radius: 0.3rem;
@@ -92,18 +92,12 @@ main {
 .game-over[open] {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .game-over::backdrop {
   background-color: #3843513b;
-}
-
-.game-over form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .game-over button {
@@ -119,11 +113,6 @@ main {
 
 .game-over button:active {
   background-color: var(--color-neutral-3);
-}
-
-.game-over .buttons {
-  display: flex;
-  justify-content: space-around;
 }
 
 /******************************************************************************/
