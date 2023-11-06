@@ -4,7 +4,7 @@ import Ship from './ship';
 import {
   changeActivePlayer,
   renderGameboard,
-  updateOpponentGameboard,
+  updateOppGameboard,
   updateUserGameboard,
   disableOppGameboard,
   enableOppGameboard,
@@ -41,7 +41,7 @@ const playRound = (coords) => {
   const userAttack = user.attack(computerGameboard, coords);
 
   if (userAttack !== null) {
-    updateOpponentGameboard(computerGameboard.getState(), coords);
+    updateOppGameboard(computerGameboard.getState(), coords);
     changeActivePlayer();
 
     if (computerGameboard.isAllSunk()) {

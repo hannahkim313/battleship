@@ -23,7 +23,7 @@ const changeActivePlayer = () => {
   nextTurn.classList.toggle('turn');
 };
 
-const updateOpponentGameboard = (state, coords) => {
+const updateOppGameboard = (state, coords) => {
   const [row, letter] = coords;
   const col = getColNum(letter);
   const box = document.querySelector(
@@ -86,7 +86,7 @@ const showGameOver = (winner) => {
 export {
   renderGameboard,
   changeActivePlayer,
-  updateOpponentGameboard,
+  updateOppGameboard,
   updateUserGameboard,
   disableOppGameboard,
   enableOppGameboard,
