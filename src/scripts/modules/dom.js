@@ -1,4 +1,5 @@
 import { getColNum } from './helper-functions';
+import codeIcon from '../../img/code-blocks.svg';
 
 const renderGameboard = (state) => {
   state.forEach((row, rowIndex) => {
@@ -73,14 +74,29 @@ const enableOppGameboard = () => {
 };
 
 const showGameOver = (winner) => {
-  const modal = document.querySelector('.game-over');
-  const message = modal.querySelector('p');
+  const restart = document.createElement('button');
+  restart.type = 'submit';
+  restart.classList.add('submit');
+  restart.textContent = 'Restart';
+  const form = document.createElement('form');
+  form.action = '';
+  form.method = 'dialog';
+  form.appendChild(restart);
+  const message = document.createElement('p');
 
-  if (winner === 'opponent') {
+  if (winner === 'user') {
+    message.textContent = 'You won!';
+  } else {
     message.textContent = 'You lost!';
   }
 
-  modal.showModal();
+  const dialog = document.createElement('dialog');
+  dialog.classList.add('game-over');
+  dialog.appendChild(message);
+  dialog.appendChild(form);
+  const body = document.querySelector('body');
+  body.appendChild(dialog);
+  dialog.showModal();
 };
 
 export {
