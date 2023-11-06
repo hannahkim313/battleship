@@ -83,8 +83,6 @@ const showGameOver = (winner) => {
   modal.showModal();
 };
 
-const closeGameOver = () => document.querySelector('.game-over').close();
-
 export {
   renderGameboard,
   changeActivePlayer,
@@ -93,5 +91,4 @@ export {
   disableOppGameboard,
   enableOppGameboard,
   showGameOver,
-  closeGameOver,
 };
