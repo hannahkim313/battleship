@@ -72,7 +72,18 @@ const enableOppGameboard = () => {
   boxes.forEach((box) => box.removeAttribute('disabled'));
 };
 
-const showGameOver = () => document.querySelector('.game-over').showModal();
+const showGameOver = (winner) => {
+  const modal = document.querySelector('.game-over');
+  const message = modal.querySelector('p');
+
+  if (winner === 'opponent') {
+    message.textContent = 'You lost!';
+  }
+
+  modal.showModal();
+};
+
+const closeGameOver = () => document.querySelector('.game-over').close();
 
 export {
   renderGameboard,
@@ -82,4 +93,5 @@ export {
   disableOppGameboard,
   enableOppGameboard,
   showGameOver,
+  closeGameOver,
 };

@@ -45,7 +45,7 @@ const playRound = (coords) => {
     changeActivePlayer();
 
     if (computerGameboard.isAllSunk()) {
-      showGameOver();
+      showGameOver('user');
 
       return;
     }
@@ -60,7 +60,7 @@ const playRound = (coords) => {
 
     setTimeout(() => {
       if (userGameboard.isAllSunk()) {
-        showGameOver();
+        showGameOver('opponent');
 
         return;
       }
