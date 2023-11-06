@@ -17,6 +17,6 @@ const events = {
   click: emitClickEvents,
 };
 
-const emitGameboardEvents = (e) => events[e.type](e);
+const emitGameEvents = (e) => events[e.type](e);
 
-export default emitGameboardEvents;
+export default emitGameEvents;

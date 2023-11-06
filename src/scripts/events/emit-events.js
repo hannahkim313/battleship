@@ -1,4 +1,4 @@
-import emitGameboardEvents from './gameboard-events';
+import emitGameEvents from './game-events';
 import emitModalEvents from './modal-events';
 
 const emitEvents = () => {
@@ -9,7 +9,7 @@ const emitEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('box')
     ) {
-      emitGameboardEvents(e);
+      emitGameEvents(e);
     }
 
     if (
