@@ -72,6 +72,8 @@ const enableOppGameboard = () => {
   boxes.forEach((box) => box.removeAttribute('disabled'));
 };
 
+const showGameOver = () => document.querySelector('.game-over').showModal();
+
 export {
   renderGameboard,
   changeActivePlayer,
@@ -79,4 +81,5 @@ export {
   updateUserGameboard,
   disableOppGameboard,
   enableOppGameboard,
+  showGameOver,
 };

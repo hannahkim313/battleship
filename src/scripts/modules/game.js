@@ -8,6 +8,7 @@ import {
   updateUserGameboard,
   disableOppGameboard,
   enableOppGameboard,
+  showGameOver,
 } from './dom';
 
 const userCarrier = Ship(5);
@@ -44,7 +45,7 @@ const playRound = (coords) => {
     changeActivePlayer();
 
     if (computerGameboard.isAllSunk()) {
-      // Call showGameOver() from dom module
+      showGameOver();
 
       return;
     }
@@ -59,7 +60,7 @@ const playRound = (coords) => {
 
     setTimeout(() => {
       if (userGameboard.isAllSunk()) {
-        // Call showGameOver() from dom module
+        showGameOver();
 
         return;
       }
