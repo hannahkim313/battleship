@@ -1,5 +1,4 @@
 import { getColNum } from './helper-functions';
-import codeIcon from '../../img/code-blocks.svg';
 
 const renderGameboard = (state) => {
   state.forEach((row, rowIndex) => {
