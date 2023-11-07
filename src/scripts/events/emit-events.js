@@ -39,6 +39,8 @@ const emitEvents = () => {
       emitPlacementEvents(e);
     }
   });
+
+  board.addEventListener('mouseout', (e) => emitPlacementEvents(e));
 };
 
 export default emitEvents;

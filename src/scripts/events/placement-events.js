@@ -11,9 +11,14 @@ const emitMouseoverEvents = (e) => {
   highlightBoxes(box);
 };
 
+const emitMouseoutEvents = (e) => {
+  resetBoxes();
+};
+
 const events = {
   click: emitClickEvents,
   mouseover: emitMouseoverEvents,
+  mouseout: emitMouseoutEvents,
 };
 
 const emitPlacementEvents = (e) => events[e.type](e);
