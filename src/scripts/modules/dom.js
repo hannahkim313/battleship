@@ -1,5 +1,11 @@
 import { getColNum } from './helper-functions';
 
+const toggleActivePiece = (selectedPiece) => {
+  const activePiece = document.querySelector('.pieces .active');
+  activePiece.classList.toggle('active');
+  selectedPiece.classList.toggle('active');
+};
+
 const renderGameboard = (state) => {
   state.forEach((row, rowIndex) => {
     row.forEach((col, colIndex) => {
@@ -99,6 +105,7 @@ const showGameOver = (winner) => {
 };
 
 export {
+  toggleActivePiece,
   renderGameboard,
   changeActivePlayer,
   updateOppGameboard,
