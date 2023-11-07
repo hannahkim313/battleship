@@ -58,6 +58,24 @@ test('place a ship on top of another ship', () => {
   ]);
 });
 
+test('place a ship of length 2 (vertically) in the top left corner', () => {
+  const gameboard = Gameboard();
+  const ship1 = Ship(2);
+  gameboard.placeShip(ship1, ['1', 'a'], true);
+  expect(gameboard.getState()).toEqual([
+    [ship1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [ship1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ]);
+});
+
 test('place an attack that hits a ship', () => {
   const gameboard = Gameboard();
   const ship1 = Ship(2);
