@@ -58,6 +58,27 @@ test('place a ship on top of another ship', () => {
   ]);
 });
 
+test('place a vertical ship on top of a horizontal ship', () => {
+  const gameboard = Gameboard();
+  const ship1 = Ship(2);
+  gameboard.placeShip(ship1, ['5', 'e']);
+  const ship2 = Ship(4);
+  gameboard.placeShip(ship2, ['5', 'f'], true);
+  expect(gameboard.placeShip(ship1, ['5', 'f'], true)).toEqual(null);
+  expect(gameboard.getState()).toEqual([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, ship1, ship1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ]);
+});
+
 test('place a ship of length 2 (vertically) in the top left corner', () => {
   const gameboard = Gameboard();
   const ship1 = Ship(2);
@@ -65,6 +86,24 @@ test('place a ship of length 2 (vertically) in the top left corner', () => {
   expect(gameboard.getState()).toEqual([
     [ship1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [ship1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ]);
+});
+
+test('place a ship of length 2 (vertically) in the bottom right corner', () => {
+  const gameboard = Gameboard();
+  const ship1 = Ship(2);
+  gameboard.placeShip(ship1, ['10', 'j'], true);
+  expect(gameboard.getState()).toEqual([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
