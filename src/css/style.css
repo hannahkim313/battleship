@@ -17,7 +17,7 @@
   --color-neutral-1: #dfdfdf;
   --color-neutral-2: #d2d2d2;
   --color-neutral-3: #c6c6c6;
-  --color-neutral-4: #a0a0a0;
+  --color-neutral-4: #b2b2b2;
 }
 
 body {
@@ -128,6 +128,10 @@ main {
   gap: 1rem;
 }
 
+.hidden {
+  display: none;
+}
+
 h2 {
   width: 100%;
   text-align: center;
@@ -162,6 +166,7 @@ h2.turn {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.2s ease;
 }
 
 .box.occupied {
@@ -172,24 +177,27 @@ h2.turn {
   cursor: default;
 }
 
-.opponent .box:not(.filler):hover {
+.gameboard-container:not(.user) .box:not(.filler):hover {
   background-color: var(--color-brand-1c);
-  transition: background-color 0.2s ease;
 }
 
-.opponent .box:not(.filler):disabled:hover {
+.gameboard-container:not(.user) .box:not(.filler):disabled:hover {
   cursor: default;
   background-color: var(--color-brand-1b);
 }
 
-.opponent .box:not(.filler):has(.miss):hover {
+.gameboard-container:not(.user) .box:not(.filler):has(.miss):hover {
   cursor: default;
   background-color: var(--color-brand-1b);
 }
 
-.opponent .box:not(.filler):has(.hit):hover {
+.gameboard-container:not(.user) .box:not(.filler):has(.hit):hover {
   cursor: default;
   background-color: var(--color-neutral-2);
+}
+
+.gameboard-container:not(.hidden) .box:not(.filler):hover + .sibling {
+  background-color: var(--color-brand-1c);
 }
 
 .marker {
@@ -208,6 +216,71 @@ h2.turn {
 
 .hit {
   background-color: var(--color-brand-5);
+}
+
+/******************************************************************************/
+/* Selectors for the ship selection start here.
+/******************************************************************************/
+
+.board-pieces-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pieces {
+  display: flex;
+  gap: 1rem;
+}
+
+.pieces img {
+  width: 3rem;
+}
+
+.pieces > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.piece {
+  padding: 0.5rem;
+  border: 0.1rem solid transparent;
+  border-radius: 50%;
+  transition: border 0.2s ease;
+}
+
+.piece:hover {
+  border-color: var(--color-text-1);
+}
+
+.piece.active {
+  border-color: var(--color-text-1);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.controls img {
+  width: 2rem;
+}
+
+.controls > button {
+  background-color: var(--color-neutral-2);
+  padding: 0.2rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.controls > button:hover {
+  background-color: var(--color-neutral-3);
+}
+
+.controls > button:active {
+  background-color: var(--color-neutral-4);
 }
 
 /******************************************************************************/
