@@ -27,6 +27,18 @@ const emitEvents = () => {
       emitModalEvents(e);
     }
   });
+
+  const board = document.querySelector('.board');
+
+  board.addEventListener('mouseover', (e) => {
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('box') &&
+      !e.target.closest('button').classList.contains('filler')
+    ) {
+      emitPlacementEvents(e);
+    }
+  });
 };
 
 export default emitEvents;

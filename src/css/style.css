@@ -10,10 +10,12 @@
   --color-brand-1b: #dfe7f1;
   --color-brand-1c: #cdd5df;
   --color-brand-2: #5abfbf;
+  --color-brand-2a: #c2d8d8;
   --color-brand-3: #f2c335;
   --color-brand-4: #f2aa52;
   --color-brand-5: #d95252;
-  --color-brand-5a: #d9525250;
+  --color-brand-5a: #daafaf50;
+  --color-brand-5b: #d4a7a7;
   --color-neutral-1: #dfdfdf;
   --color-neutral-2: #d2d2d2;
   --color-neutral-3: #c6c6c6;
@@ -194,10 +196,6 @@ h2.turn {
 .gameboard-container:not(.user) .box:not(.filler):has(.hit):hover {
   cursor: default;
   background-color: var(--color-neutral-2);
-}
-
-.gameboard-container:not(.hidden) .box:not(.filler):hover + .sibling {
-  background-color: var(--color-brand-1c);
 }
 
 .marker {

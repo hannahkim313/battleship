@@ -6,6 +6,44 @@ const toggleActivePiece = (selectedPiece) => {
   selectedPiece.classList.toggle('active');
 };
 
+const resetBoxes = () => {
+  const boxes = document.querySelectorAll('.box:not(.filler)');
+  boxes.forEach((box) => (box.style.backgroundColor = 'var(--color-brand-1b'));
+};
+
+const highlightBoxes = (box) => {
+  const col = box.dataset.col;
+  const length = document.querySelector('.piece.active').dataset.length;
+  const colMax = Number(col) + Number(length);
+  const boxes = [];
+  let currBox = box;
+  let count = Number(col);
+
+  while (count < colMax) {
+    boxes.push(currBox);
+
+    if (
+      currBox.nextElementSibling === null ||
+      !currBox.nextElementSibling.classList.contains('box')
+    ) {
+      break;
+    }
+
+    currBox = currBox.nextElementSibling;
+    count += 1;
+  }
+
+  if (boxes.length < colMax - col) {
+    boxes.forEach((box) => {
+      box.style.backgroundColor = 'var(--color-brand-5b)';
+    });
+  } else {
+    boxes.forEach((box) => {
+      box.style.backgroundColor = 'var(--color-brand-2a)';
+    });
+  }
+};
+
 const renderGameboard = (state) => {
   state.forEach((row, rowIndex) => {
     row.forEach((col, colIndex) => {
@@ -106,6 +144,8 @@ const showGameOver = (winner) => {
 
 export {
   toggleActivePiece,
+  resetBoxes,
+  highlightBoxes,
   renderGameboard,
   changeActivePlayer,
   updateOppGameboard,
