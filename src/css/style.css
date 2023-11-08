@@ -227,6 +227,10 @@ h2.turn {
   gap: 2rem;
 }
 
+.placed {
+  background-color: var(--color-brand-2a);
+}
+
 .pieces {
   display: flex;
   gap: 1rem;

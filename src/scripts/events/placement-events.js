@@ -1,14 +1,44 @@
-import { highlightBoxes, resetBoxes, toggleActivePiece } from '../modules/dom';
+import Ship from '../modules/ship';
+import { storeInput } from '../modules/game';
+import { getColLetter } from '../modules/helper-functions';
+import {
+  changeOnHover,
+  displaySelectedBoxes,
+  resetBoxes,
+  toggleActivePiece,
+} from '../modules/dom';
 
 const emitClickEvents = (e) => {
-  const selectedPiece = e.target.closest('button');
-  toggleActivePiece(selectedPiece);
+  if (
+    e.target.closest('button') &&
+    e.target.closest('button').classList.contains('piece')
+  ) {
+    const selectedPiece = e.target.closest('button');
+    toggleActivePiece(selectedPiece);
+  }
+
+  if (
+    e.target.closest('button') &&
+    e.target.closest('button').classList.contains('box') &&
+    !e.target.closest('button').classList.contains('filler')
+  ) {
+    const selectedPiece = document.querySelector('.piece.active');
+    const length = Number(selectedPiece.dataset.length);
+    const box = e.target.closest('button');
+    const coords = [box.dataset.row, getColLetter(box.dataset.col)];
+
+    if (storeInput(Ship(length), coords) === null) {
+      return;
+    }
+
+    displaySelectedBoxes(box);
+  }
 };
 
 const emitMouseoverEvents = (e) => {
   resetBoxes();
   const box = e.target.closest('button');
-  highlightBoxes(box);
+  changeOnHover(box);
 };
 
 const emitMouseoutEvents = (e) => {

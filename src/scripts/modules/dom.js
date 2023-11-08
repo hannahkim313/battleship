@@ -6,12 +6,7 @@ const toggleActivePiece = (selectedPiece) => {
   selectedPiece.classList.toggle('active');
 };
 
-const resetBoxes = () => {
-  const boxes = document.querySelectorAll('.box:not(.filler)');
-  boxes.forEach((box) => (box.style.backgroundColor = 'var(--color-brand-1b'));
-};
-
-const highlightBoxes = (box) => {
+const getSelectedBoxes = (box) => {
   const col = box.dataset.col;
   const length = document.querySelector('.piece.active').dataset.length;
   const colMax = Number(col) + Number(length);
@@ -33,15 +28,47 @@ const highlightBoxes = (box) => {
     count += 1;
   }
 
+  return boxes;
+};
+
+const showValid = (box) => (box.style.backgroundColor = 'var(--color-brand-2a');
+
+const showInvalid = (box) =>
+  (box.style.backgroundColor = 'var(--color-brand-5b');
+
+const resetBoxes = () => {
+  const boxes = document.querySelectorAll('.box:not(.filler, .placed)');
+  boxes.forEach((box) => (box.style.backgroundColor = 'var(--color-brand-1b'));
+};
+
+const revertPlacedBoxes = () => {
+  const placedBoxes = document.querySelectorAll('.placed');
+  placedBoxes.forEach((box) => showValid(box));
+};
+
+const changeOnHover = (box) => {
+  revertPlacedBoxes();
+  const col = box.dataset.col;
+  const length = document.querySelector('.piece.active').dataset.length;
+  const colMax = Number(col) + Number(length);
+  const boxes = getSelectedBoxes(box);
+
   if (boxes.length < colMax - col) {
-    boxes.forEach((box) => {
-      box.style.backgroundColor = 'var(--color-brand-5b)';
-    });
+    boxes.forEach((box) => showInvalid(box));
   } else {
     boxes.forEach((box) => {
-      box.style.backgroundColor = 'var(--color-brand-2a)';
+      if (box.classList.contains('placed')) {
+        showInvalid(box);
+      } else {
+        showValid(box);
+      }
     });
   }
+};
+
+const displaySelectedBoxes = (box) => {
+  const boxes = getSelectedBoxes(box);
+  boxes.forEach((box) => box.classList.toggle('placed'));
 };
 
 const renderGameboard = (state) => {
@@ -145,7 +172,8 @@ const showGameOver = (winner) => {
 export {
   toggleActivePiece,
   resetBoxes,
-  highlightBoxes,
+  changeOnHover,
+  displaySelectedBoxes,
   renderGameboard,
   changeActivePlayer,
   updateOppGameboard,
