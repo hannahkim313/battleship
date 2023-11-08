@@ -28,9 +28,21 @@ const emitEvents = () => {
     }
   });
 
-  const board = document.querySelector('.board');
+  const initialBoard = document.querySelector('.board');
 
-  board.addEventListener('mouseover', (e) => {
+  initialBoard.addEventListener('mouseover', (e) => {
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('box') &&
+      !e.target.closest('button').classList.contains('filler')
+    ) {
+      emitPlacementEvents(e);
+    }
+  });
+
+  initialBoard.addEventListener('mouseout', (e) => emitPlacementEvents(e));
+
+  initialBoard.addEventListener('click', (e) => {
     if (
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('box') &&

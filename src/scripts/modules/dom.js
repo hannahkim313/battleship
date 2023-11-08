@@ -1,17 +1,30 @@
 import { getColNum } from './helper-functions';
+import checkIcon from '../../img/check.svg';
 
 const toggleActivePiece = (selectedPiece) => {
-  const activePiece = document.querySelector('.pieces .active');
+  const activePiece = document.querySelector('.piece.active');
   activePiece.classList.toggle('active');
   selectedPiece.classList.toggle('active');
 };
 
-const resetBoxes = () => {
-  const boxes = document.querySelectorAll('.box:not(.filler)');
-  boxes.forEach((box) => (box.style.backgroundColor = 'var(--color-brand-1b'));
+const updatePieces = () => {
+  const checkImg = document.createElement('img');
+  checkImg.src = checkIcon;
+  checkImg.alt = 'Check mark to denote this ship was placed';
+  checkImg.classList.add('check');
+  const activePiece = document.querySelector('.piece.active');
+  activePiece.appendChild(checkImg);
+  activePiece.setAttribute('disabled', '');
+  activePiece.classList.toggle('active');
+  activePiece.firstElementChild.classList.toggle('placed');
+  const piecesLeft = document.querySelectorAll('.piece:not(:disabled)');
+
+  if (piecesLeft.length > 0) {
+    piecesLeft[0].classList.toggle('active');
+  }
 };
 
-const highlightBoxes = (box) => {
+const getSelectedBoxes = (box) => {
   const col = box.dataset.col;
   const length = document.querySelector('.piece.active').dataset.length;
   const colMax = Number(col) + Number(length);
@@ -33,15 +46,47 @@ const highlightBoxes = (box) => {
     count += 1;
   }
 
+  return boxes;
+};
+
+const showValid = (box) => (box.style.backgroundColor = 'var(--color-brand-2a');
+
+const showInvalid = (box) =>
+  (box.style.backgroundColor = 'var(--color-brand-5b');
+
+const resetBoxes = () => {
+  const boxes = document.querySelectorAll('.box:not(.filler, .placed)');
+  boxes.forEach((box) => (box.style.backgroundColor = 'var(--color-brand-1b'));
+};
+
+const revertPlacedBoxes = () => {
+  const placedBoxes = document.querySelectorAll('.box.placed');
+  placedBoxes.forEach((box) => showValid(box));
+};
+
+const changeOnHover = (box) => {
+  revertPlacedBoxes();
+  const col = box.dataset.col;
+  const length = document.querySelector('.piece.active').dataset.length;
+  const colMax = Number(col) + Number(length);
+  const boxes = getSelectedBoxes(box);
+
   if (boxes.length < colMax - col) {
-    boxes.forEach((box) => {
-      box.style.backgroundColor = 'var(--color-brand-5b)';
-    });
+    boxes.forEach((box) => showInvalid(box));
   } else {
     boxes.forEach((box) => {
-      box.style.backgroundColor = 'var(--color-brand-2a)';
+      if (box.classList.contains('placed')) {
+        showInvalid(box);
+      } else {
+        showValid(box);
+      }
     });
   }
+};
+
+const displaySelectedBoxes = (box) => {
+  const boxes = getSelectedBoxes(box);
+  boxes.forEach((box) => box.classList.toggle('placed'));
 };
 
 const renderGameboard = (state) => {
@@ -104,6 +149,11 @@ const updateUserGameboard = (state, coords) => {
   }
 };
 
+const disableInitialGameboard = () => {
+  const boxes = document.querySelectorAll('.box');
+  boxes.forEach((box) => box.setAttribute('disabled', ''));
+};
+
 const disableOppGameboard = () => {
   const gameboardLabel = document.querySelector('.turn');
   const boxes = gameboardLabel.closest('article').querySelectorAll('.box');
@@ -144,12 +194,15 @@ const showGameOver = (winner) => {
 
 export {
   toggleActivePiece,
+  updatePieces,
   resetBoxes,
-  highlightBoxes,
+  changeOnHover,
+  displaySelectedBoxes,
   renderGameboard,
   changeActivePlayer,
   updateOppGameboard,
   updateUserGameboard,
+  disableInitialGameboard,
   disableOppGameboard,
   enableOppGameboard,
   showGameOver,
