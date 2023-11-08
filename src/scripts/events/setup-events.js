@@ -1,15 +1,14 @@
 import Ship from '../modules/ship';
-import { clearInputs, storeInput } from '../modules/game';
+import { storeInput } from '../modules/game';
 import { getColLetter } from '../modules/helper-functions';
 import {
   changeOnHover,
   disableInitialGameboard,
   displaySelectedBoxes,
-  resetAllBoxes,
   removeHoverEffect,
   updatePieces,
   toggleActivePiece,
-  resetPieces,
+  showConfirmReset,
 } from '../modules/dom';
 
 const emitSetupEvents = () => {
@@ -39,9 +38,7 @@ const emitSetupEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('reset')
     ) {
-      resetAllBoxes();
-      resetPieces();
-      clearInputs();
+      showConfirmReset();
     }
 
     if (

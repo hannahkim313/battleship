@@ -1,4 +1,4 @@
-const emitModalEvents = () => {
+const emitGameOverModalEvents = () => {
   const body = document.querySelector('body');
 
   body.addEventListener('click', (e) => {
@@ -11,4 +11,4 @@ const emitModalEvents = () => {
   });
 };
 
-export default emitModalEvents;
+export default emitGameOverModalEvents;

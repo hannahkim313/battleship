@@ -74,10 +74,10 @@ main {
 }
 
 /******************************************************************************/
-/* Selectors for the game over modal start here.
+/* Selectors for modals start here.
 /******************************************************************************/
 
-.game-over {
+dialog {
   width: 30%;
   height: 20%;
   border: none;
@@ -91,30 +91,39 @@ main {
   display: none;
 }
 
-.game-over[open] {
+dialog[open] {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.game-over::backdrop {
+dialog::backdrop {
   background-color: #3843513b;
 }
 
-.game-over button {
+dialog button {
   background-color: var(--color-neutral-1);
   padding: 0.1rem 1rem;
   border-radius: 0.2rem;
   transition: background-color 0.2s ease;
 }
 
-.game-over button:hover {
+dialog button:hover {
   background-color: var(--color-neutral-2);
 }
 
-.game-over button:active {
+dialog button:active {
   background-color: var(--color-neutral-3);
+}
+
+/******************************************************************************/
+/* Selectors for the reset modal start here.
+/******************************************************************************/
+
+.reset form {
+  display: flex;
+  gap: 2rem;
 }
 
 /******************************************************************************/

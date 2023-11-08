@@ -24,21 +24,6 @@ const updatePieces = () => {
   }
 };
 
-const resetPieces = () => {
-  const pieces = document.querySelectorAll('.piece');
-  pieces.forEach((piece) => {
-    piece.removeAttribute('disabled');
-
-    if (piece.firstElementChild.classList.contains('placed')) {
-      piece.firstElementChild.classList.toggle('placed');
-    }
-
-    if (piece.childElementCount > 1) {
-      piece.lastElementChild.remove();
-    }
-  });
-};
-
 const getSelectedBoxes = (box) => {
   const col = box.dataset.col;
   const length = document.querySelector('.piece.active').dataset.length;
@@ -73,17 +58,6 @@ const invalidColor = 'var(--color-brand-5b)';
 const showInvalid = (box) => (box.style.backgroundColor = invalidColor);
 
 const defaultColor = 'var(--color-brand-1b)';
-
-const resetAllBoxes = () => {
-  const boxes = document.querySelectorAll('.box:not(.filler)');
-  boxes.forEach((box) => {
-    box.style.backgroundColor = defaultColor;
-
-    if (box.classList.contains('placed')) {
-      box.classList.toggle('placed');
-    }
-  });
-};
 
 const revertPlacedBoxes = () => {
   const placedBoxes = document.querySelectorAll('.box.placed');
@@ -198,6 +172,31 @@ const enableOppGameboard = () => {
   boxes.forEach((box) => box.removeAttribute('disabled'));
 };
 
+const showConfirmReset = () => {
+  const yes = document.createElement('button');
+  yes.type = 'submit';
+  yes.classList.add('yes');
+  yes.textContent = 'Yes';
+  const no = document.createElement('button');
+  no.type = 'button';
+  no.classList.add('no');
+  no.textContent = 'No';
+  const form = document.createElement('form');
+  form.action = '';
+  form.method = 'dialog';
+  form.appendChild(yes);
+  form.appendChild(no);
+  const message = document.createElement('p');
+  message.textContent = 'Are you sure you want to reset the board?';
+  const dialog = document.createElement('dialog');
+  dialog.classList.add('reset');
+  dialog.appendChild(message);
+  dialog.appendChild(form);
+  const footer = document.querySelector('footer');
+  footer.insertAdjacentElement('beforebegin', dialog);
+  dialog.showModal();
+};
+
 const showGameOver = (winner) => {
   const restart = document.createElement('button');
   restart.type = 'submit';
@@ -227,8 +226,6 @@ const showGameOver = (winner) => {
 export {
   toggleActivePiece,
   updatePieces,
-  resetPieces,
-  resetAllBoxes,
   removeHoverEffect,
   changeOnHover,
   displaySelectedBoxes,
@@ -239,5 +236,6 @@ export {
   disableInitialGameboard,
   disableOppGameboard,
   enableOppGameboard,
+  showConfirmReset,
   showGameOver,
 };

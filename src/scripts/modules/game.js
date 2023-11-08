@@ -30,8 +30,6 @@ const computer = Player();
 
 const storeInput = (ship, coords) => userGameboard.placeShip(ship, coords);
 
-const clearInputs = () => userGameboard.clear();
-
 const playRound = (coords) => {
   const userAttack = user.attack(computerGameboard, coords);
 
@@ -65,4 +63,4 @@ const playRound = (coords) => {
   }
 };
 
-export { storeInput, clearInputs, playRound };
+export { storeInput, playRound };
