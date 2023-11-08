@@ -6,6 +6,7 @@ import {
   displaySelectedBoxes,
   resetBoxes,
   toggleActivePiece,
+  updatePieces,
 } from '../modules/dom';
 
 const emitClickEvents = (e) => {
@@ -32,6 +33,7 @@ const emitClickEvents = (e) => {
     }
 
     displaySelectedBoxes(box);
+    updatePieces();
   }
 };
 

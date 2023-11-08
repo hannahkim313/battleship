@@ -4,11 +4,13 @@
 <desc>Created with Fabric.js 5.2.4</desc>
 <defs>
 </defs>
-<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
-<g transform="matrix(1 0 0 1 540 540)" id="a7c37d21-c3f1-478a-b80e-d07a16a2e66d"  >
+<g transform="matrix(1 0 0 1 540 540)" id="0da1a2db-3399-4fc1-8bf7-e063cfdf6b81"  >
 <rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
 </g>
-<g transform="matrix(1 0 0 1 540 540)" id="cdd37882-2534-4422-a65a-0bf8e3290f3e"  >
+<g transform="matrix(1 0 0 1 540 540)" id="d2c19e57-4751-4b2a-b15c-05c5884617be"  >
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="23313579-b3c8-4982-b785-cb45449f3439"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(56,67,81); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-480.17, 480.5)" d="M 382 -354 L 721 -693 Q 733 -705 749.5 -705 Q 766 -705 778 -693 Q 790 -681 790 -664.5 Q 790 -648 778 -636 L 410 -268 Q 398 -256 382 -256 Q 366 -256 354 -268 L 182 -440 Q 170 -452 170.5 -468.5 Q 171 -485 183 -497 Q 195 -509 211.5 -509 Q 228 -509 240 -497 L 382 -354 Z" stroke-linecap="round" />
 </g>
 <g transform="matrix(NaN NaN NaN NaN 0 0)"  >
 <g style=""   >
@@ -17,27 +19,5 @@
 <g transform="matrix(NaN NaN NaN NaN 0 0)"  >
 <g style=""   >
 </g>
-</g>
-<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
-<g style=""   >
-</g>
-</g>
-<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
-<g style=""   >
-</g>
-</g>
-<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
-<g style=""   >
-</g>
-</g>
-<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
-<g style=""   >
-</g>
-</g>
-<g transform="matrix(1 0 0 1 540 540)"  >
-<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
-</g>
-<g transform="matrix(1 0 0 1 540 540)"  >
-<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-480, 480)" d="M 424 -408 L 338 -494 Q 327 -505 310 -505 Q 293 -505 282 -494 Q 271 -483 271 -466 Q 271 -449 282 -438 L 396 -324 Q 408 -312 424 -312 Q 440 -312 452 -324 L 678 -550 Q 689 -561 689 -578 Q 689 -595 678 -606 Q 667 -617 650 -617 Q 633 -617 622 -606 L 424 -408 Z M 480 -80 Q 397 -80 324 -111.5 Q 251 -143 197 -197 Q 143 -251 111.5 -324 Q 80 -397 80 -480 Q 80 -563 111.5 -636 Q 143 -709 197 -763 Q 251 -817 324 -848.5 Q 397 -880 480 -880 Q 563 -880 636 -848.5 Q 709 -817 763 -763 Q 817 -709 848.5 -636 Q 880 -563 880 -480 Q 880 -397 848.5 -324 Q 817 -251 763 -197 Q 709 -143 636 -111.5 Q 563 -80 480 -80 Z M 480 -160 Q 614 -160 707 -253 Q 800 -346 800 -480 Q 800 -614 707 -707 Q 614 -800 480 -800 Q 346 -800 253 -707 Q 160 -614 160 -480 Q 160 -346 253 -253 Q 346 -160 480 -160 Z M 480 -480 Z" stroke-linecap="round" />
 </g>
 </svg>
