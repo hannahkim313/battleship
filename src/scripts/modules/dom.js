@@ -149,6 +149,11 @@ const updateUserGameboard = (state, coords) => {
   }
 };
 
+const disableInitialGameboard = () => {
+  const boxes = document.querySelectorAll('.box');
+  boxes.forEach((box) => box.setAttribute('disabled', ''));
+};
+
 const disableOppGameboard = () => {
   const gameboardLabel = document.querySelector('.turn');
   const boxes = gameboardLabel.closest('article').querySelectorAll('.box');
@@ -197,6 +202,7 @@ export {
   changeActivePlayer,
   updateOppGameboard,
   updateUserGameboard,
+  disableInitialGameboard,
   disableOppGameboard,
   enableOppGameboard,
   showGameOver,

@@ -3,6 +3,7 @@ import { storeInput } from '../modules/game';
 import { getColLetter } from '../modules/helper-functions';
 import {
   changeOnHover,
+  disableInitialGameboard,
   displaySelectedBoxes,
   resetBoxes,
   toggleActivePiece,
@@ -38,9 +39,15 @@ const emitClickEvents = (e) => {
 };
 
 const emitMouseoverEvents = (e) => {
-  resetBoxes();
-  const box = e.target.closest('button');
-  changeOnHover(box);
+  const piecesLeft = document.querySelectorAll('.piece:not(:disabled)');
+
+  if (piecesLeft.length > 0) {
+    resetBoxes();
+    const box = e.target.closest('button');
+    changeOnHover(box);
+  } else {
+    disableInitialGameboard();
+  }
 };
 
 const emitMouseoutEvents = (e) => {

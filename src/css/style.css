@@ -175,6 +175,10 @@ h2.turn {
   background-color: var(--color-neutral-2);
 }
 
+.box:disabled:hover {
+  cursor: default;
+}
+
 .user .box:not(.filler):hover {
   cursor: default;
 }
