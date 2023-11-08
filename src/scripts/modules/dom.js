@@ -137,8 +137,8 @@ const showGameOver = (winner) => {
   dialog.classList.add('game-over');
   dialog.appendChild(message);
   dialog.appendChild(form);
-  const body = document.querySelector('body');
-  body.appendChild(dialog);
+  const footer = document.querySelector('footer');
+  footer.insertAdjacentElement('beforebegin', dialog);
   dialog.showModal();
 };
 
