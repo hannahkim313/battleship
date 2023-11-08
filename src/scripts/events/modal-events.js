@@ -1,16 +1,14 @@
-const emitClickEvents = (e) => {
-  if (
-    e.target.closest('button') &&
-    e.target.closest('button').classList.contains('submit')
-  ) {
-    location.reload();
-  }
-};
+const emitModalEvents = () => {
+  const body = document.querySelector('body');
 
-const events = {
-  click: emitClickEvents,
+  body.addEventListener('click', (e) => {
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('submit')
+    ) {
+      location.reload();
+    }
+  });
 };
-
-const emitModalEvents = (e) => events[e.type](e);
 
 export default emitModalEvents;
