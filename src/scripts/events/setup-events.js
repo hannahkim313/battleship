@@ -9,6 +9,7 @@ import {
   updatePieces,
   toggleActivePiece,
   showConfirmReset,
+  showRotateOptions,
 } from '../modules/dom';
 
 const emitSetupEvents = () => {
@@ -31,7 +32,7 @@ const emitSetupEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('rotate')
     ) {
-      // do something
+      showRotateOptions();
     }
 
     if (
@@ -43,7 +44,7 @@ const emitSetupEvents = () => {
 
     if (
       e.target.closest('button') &&
-      e.target.closest('button').classList.contains('submit')
+      e.target.closest('button').classList.contains('start')
     ) {
       // do something
     }

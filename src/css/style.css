@@ -9,6 +9,8 @@
   --color-brand-1a: #7295c2;
   --color-brand-1b: #dfe7f1;
   --color-brand-1c: #cdd5df;
+  --color-brand-1d: #4c5a6d;
+  --color-brand-1e: #61728a;
   --color-brand-2: #5abfbf;
   --color-brand-2a: #c2d8d8;
   --color-brand-3: #f2c335;
@@ -117,13 +119,33 @@ dialog button:active {
   background-color: var(--color-neutral-3);
 }
 
-/******************************************************************************/
-/* Selectors for the reset modal start here.
-/******************************************************************************/
-
-.reset form {
+dialog form:has(:nth-child(2)) {
   display: flex;
   gap: 2rem;
+}
+
+/******************************************************************************/
+/* Selectors for the rotate modal start here.
+/******************************************************************************/
+
+.rotate .selected {
+  color: white;
+  background-color: var(--color-text-1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rotate .selected:hover {
+  background-color: var(--color-brand-1d);
+}
+
+.rotate .selected:active {
+  background-color: var(--color-brand-1e);
+}
+
+.rotate .selected img {
+  width: 1rem;
 }
 
 /******************************************************************************/

@@ -1,5 +1,6 @@
 import { getColNum } from './helper-functions';
 import checkIcon from '../../img/check.svg';
+import checkInvertedIcon from '../../img/check-inverted.svg';
 
 const toggleActivePiece = (selectedPiece) => {
   const activePiece = document.querySelector('.piece.active');
@@ -172,6 +173,35 @@ const enableOppGameboard = () => {
   boxes.forEach((box) => box.removeAttribute('disabled'));
 };
 
+const showRotateOptions = () => {
+  const checkImg = document.createElement('img');
+  checkImg.src = checkInvertedIcon;
+  checkImg.alt = 'This option is selected';
+  const horizontal = document.createElement('button');
+  horizontal.type = 'button';
+  horizontal.classList.add('horizontal', 'selected');
+  horizontal.textContent = 'Horizontal';
+  horizontal.appendChild(checkImg);
+  const vertical = document.createElement('button');
+  vertical.type = 'button';
+  vertical.classList.add('Vertical');
+  vertical.textContent = 'Vertical';
+  const form = document.createElement('form');
+  form.action = '';
+  form.method = 'dialog';
+  form.appendChild(horizontal);
+  form.appendChild(vertical);
+  const message = document.createElement('p');
+  message.textContent = 'Select an option to rotate your ship';
+  const dialog = document.createElement('dialog');
+  dialog.classList.add('rotate');
+  dialog.appendChild(message);
+  dialog.appendChild(form);
+  const footer = document.querySelector('footer');
+  footer.insertAdjacentElement('beforebegin', dialog);
+  dialog.showModal();
+};
+
 const showConfirmReset = () => {
   const yes = document.createElement('button');
   yes.type = 'submit';
@@ -236,6 +266,7 @@ export {
   disableInitialGameboard,
   disableOppGameboard,
   enableOppGameboard,
+  showRotateOptions,
   showConfirmReset,
   showGameOver,
 };
