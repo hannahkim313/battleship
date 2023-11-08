@@ -24,6 +24,21 @@ const updatePieces = () => {
   }
 };
 
+const resetPieces = () => {
+  const pieces = document.querySelectorAll('.piece');
+  pieces.forEach((piece) => {
+    piece.removeAttribute('disabled');
+
+    if (piece.firstElementChild.classList.contains('placed')) {
+      piece.firstElementChild.classList.toggle('placed');
+    }
+
+    if (piece.childElementCount > 1) {
+      piece.lastElementChild.remove();
+    }
+  });
+};
+
 const getSelectedBoxes = (box) => {
   const col = box.dataset.col;
   const length = document.querySelector('.piece.active').dataset.length;
@@ -49,19 +64,36 @@ const getSelectedBoxes = (box) => {
   return boxes;
 };
 
-const showValid = (box) => (box.style.backgroundColor = 'var(--color-brand-2a');
+const validColor = 'var(--color-brand-2a)';
 
-const showInvalid = (box) =>
-  (box.style.backgroundColor = 'var(--color-brand-5b');
+const showValid = (box) => (box.style.backgroundColor = validColor);
 
-const resetBoxes = () => {
-  const boxes = document.querySelectorAll('.box:not(.filler, .placed)');
-  boxes.forEach((box) => (box.style.backgroundColor = 'var(--color-brand-1b'));
+const invalidColor = 'var(--color-brand-5b)';
+
+const showInvalid = (box) => (box.style.backgroundColor = invalidColor);
+
+const defaultColor = 'var(--color-brand-1b)';
+
+const resetAllBoxes = () => {
+  const boxes = document.querySelectorAll('.box:not(.filler)');
+  boxes.forEach((box) => {
+    box.style.backgroundColor = defaultColor;
+
+    if (box.classList.contains('placed')) {
+      box.classList.toggle('placed');
+    }
+  });
 };
 
 const revertPlacedBoxes = () => {
   const placedBoxes = document.querySelectorAll('.box.placed');
   placedBoxes.forEach((box) => showValid(box));
+};
+
+const removeHoverEffect = () => {
+  revertPlacedBoxes();
+  const boxes = document.querySelectorAll('.box:not(.filler, .placed)');
+  boxes.forEach((box) => (box.style.backgroundColor = defaultColor));
 };
 
 const changeOnHover = (box) => {
@@ -195,7 +227,9 @@ const showGameOver = (winner) => {
 export {
   toggleActivePiece,
   updatePieces,
-  resetBoxes,
+  resetPieces,
+  resetAllBoxes,
+  removeHoverEffect,
   changeOnHover,
   displaySelectedBoxes,
   renderGameboard,

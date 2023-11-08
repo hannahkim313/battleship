@@ -1,12 +1,15 @@
 import Ship from '../modules/ship';
-import { storeInput } from '../modules/game';
+import { clearInputs, storeInput } from '../modules/game';
 import { getColLetter } from '../modules/helper-functions';
 import {
   changeOnHover,
   disableInitialGameboard,
   displaySelectedBoxes,
-  resetBoxes,
+  resetAllBoxes,
+  removeHoverEffect,
   updatePieces,
+  toggleActivePiece,
+  resetPieces,
 } from '../modules/dom';
 
 const emitSetupEvents = () => {
@@ -19,6 +22,33 @@ const emitSetupEvents = () => {
     ) {
       const selectedPiece = e.target.closest('button');
       toggleActivePiece(selectedPiece);
+    }
+  });
+
+  const controls = document.querySelector('.controls');
+
+  controls.addEventListener('click', (e) => {
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('rotate')
+    ) {
+      // do something
+    }
+
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('reset')
+    ) {
+      resetAllBoxes();
+      resetPieces();
+      clearInputs();
+    }
+
+    if (
+      e.target.closest('button') &&
+      e.target.closest('button').classList.contains('submit')
+    ) {
+      // do something
     }
   });
 
@@ -53,7 +83,7 @@ const emitSetupEvents = () => {
       const piecesLeft = document.querySelectorAll('.piece:not(:disabled)');
 
       if (piecesLeft.length > 0) {
-        resetBoxes();
+        removeHoverEffect();
         const box = e.target.closest('button');
         changeOnHover(box);
       } else {
@@ -62,7 +92,7 @@ const emitSetupEvents = () => {
     }
   });
 
-  gameboard.addEventListener('mouseout', () => resetBoxes());
+  gameboard.addEventListener('mouseout', () => removeHoverEffect());
 };
 
 export default emitSetupEvents;
