@@ -78,6 +78,17 @@ const Gameboard = () => {
     }
   };
 
+  const clear = () => {
+    let row = 0;
+
+    while (row < 10) {
+      state[row].fill(0);
+      row += 1;
+    }
+
+    ships.length = 0;
+  };
+
   const isAllSunk = () => ships.every((ship) => ship.isSunk());
 
   const getState = () => state.map((row) => row.slice());
@@ -85,6 +96,7 @@ const Gameboard = () => {
   return {
     placeShip,
     receiveAttack,
+    clear,
     isAllSunk,
     getState,
   };
