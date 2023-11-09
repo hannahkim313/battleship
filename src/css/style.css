@@ -128,23 +128,28 @@ dialog form:has(:nth-child(2)) {
 /* Selectors for the rotate modal start here.
 /******************************************************************************/
 
-.rotate .selected {
+dialog.rotate button {
+  width: 7.3rem;
+}
+
+dialog.rotate .selected {
   color: white;
   background-color: var(--color-text-1);
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
 
-.rotate .selected:hover {
+dialog.rotate .selected:hover {
   background-color: var(--color-brand-1d);
 }
 
-.rotate .selected:active {
+dialog.rotate .selected:active {
   background-color: var(--color-brand-1e);
 }
 
-.rotate .selected img {
+dialog.rotate .selected img {
   width: 1rem;
 }
 

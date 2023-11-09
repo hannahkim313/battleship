@@ -173,6 +173,20 @@ const enableOppGameboard = () => {
   boxes.forEach((box) => box.removeAttribute('disabled'));
 };
 
+const toggleSelectedRotation = () => {
+  const selected = document.querySelector('.rotate .selected');
+  const notSelected = document.querySelector(
+    'dialog.rotate button:not(.selected)'
+  );
+  selected.lastElementChild.remove();
+  selected.classList.toggle('selected');
+  notSelected.classList.toggle('selected');
+  const checkImg = document.createElement('img');
+  checkImg.src = checkInvertedIcon;
+  checkImg.alt = 'This option is selected';
+  notSelected.appendChild(checkImg);
+};
+
 const showRotateOptions = () => {
   const checkImg = document.createElement('img');
   checkImg.src = checkInvertedIcon;
@@ -184,7 +198,7 @@ const showRotateOptions = () => {
   horizontal.appendChild(checkImg);
   const vertical = document.createElement('button');
   vertical.type = 'button';
-  vertical.classList.add('Vertical');
+  vertical.classList.add('vertical');
   vertical.textContent = 'Vertical';
   const form = document.createElement('form');
   form.action = '';
@@ -266,6 +280,7 @@ export {
   disableInitialGameboard,
   disableOppGameboard,
   enableOppGameboard,
+  toggleSelectedRotation,
   showRotateOptions,
   showConfirmReset,
   showGameOver,
