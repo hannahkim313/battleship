@@ -1,4 +1,4 @@
-import { toggleSelectedRotation } from '../modules/dom';
+import { setRotation } from '../modules/dom';
 
 const emitRotateModalEvents = () => {
   const body = document.querySelector('body');
@@ -8,8 +8,10 @@ const emitRotateModalEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('horizontal')
     ) {
-      toggleSelectedRotation();
+      setRotation('horizontal');
       // Close modal
+      const modal = document.querySelector('dialog.rotate');
+      modal.close();
       // Display horizontal ships when hovering over gameboard
     }
 
@@ -17,8 +19,10 @@ const emitRotateModalEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('vertical')
     ) {
-      toggleSelectedRotation();
+      setRotation('vertical');
       // Close modal
+      const modal = document.querySelector('dialog.rotate');
+      modal.close();
       // Display vertical ships when hovering over gameboard
     }
   });

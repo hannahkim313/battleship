@@ -9,7 +9,7 @@ import {
   updatePieces,
   toggleActivePiece,
   showConfirmReset,
-  showRotateOptions,
+  showRotationOptions,
 } from '../modules/dom';
 
 const emitSetupEvents = () => {
@@ -32,7 +32,7 @@ const emitSetupEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('rotate')
     ) {
-      showRotateOptions();
+      showRotationOptions();
     }
 
     if (
