@@ -63,6 +63,10 @@ const emitSetupEvents = () => {
       const box = e.target.closest('button');
       const coords = [box.dataset.row, getColLetter(box.dataset.col)];
 
+      // BUG: If rotation is set to 'vertical,' clicking on the gameboard
+      // to place a ship places it horizontally, thus storing the incorrect
+      // ship data to the game module.
+
       if (storeInput(Ship(length), coords) === null) {
         return;
       }

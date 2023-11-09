@@ -25,7 +25,7 @@ const updatePieces = () => {
   }
 };
 
-const getSelectedBoxes = (box) => {
+const getSelectedHorizontalBoxes = (box) => {
   const col = box.dataset.col;
   const length = document.querySelector('.piece.active').dataset.length;
   const colMax = Number(col) + Number(length);
@@ -44,6 +44,33 @@ const getSelectedBoxes = (box) => {
     }
 
     currBox = currBox.nextElementSibling;
+    count += 1;
+  }
+
+  return boxes;
+};
+
+const getSelectedVerticalBoxes = (box) => {
+  const row = box.dataset.row;
+  const length = document.querySelector('.piece.active').dataset.length;
+  const rowMax = Number(row) + Number(length);
+  const boxes = [];
+  let currBox = box;
+  let count = Number(row);
+
+  while (count < rowMax) {
+    boxes.push(currBox);
+
+    const col = box.dataset.col;
+    const nextBox = document.querySelector(
+      `.box[data-row='${count + 1}'][data-col='${col}']`
+    );
+
+    if (nextBox === null || !nextBox.classList.contains('box')) {
+      break;
+    }
+
+    currBox = nextBox;
     count += 1;
   }
 
@@ -71,14 +98,27 @@ const removeHoverEffect = () => {
   boxes.forEach((box) => (box.style.backgroundColor = defaultColor));
 };
 
-const changeOnHover = (box) => {
-  revertPlacedBoxes();
+const getDirection = () => {
+  if (document.querySelector('dialog.rotate .selected') === null) {
+    return 'horizontal';
+  }
+
+  const classes = document.querySelector('dialog.rotate .selected').classList;
+
+  if (classes.contains('horizontal')) {
+    return 'horizontal';
+  } else {
+    return 'vertical';
+  }
+};
+
+const showHorizontalBoxes = (box) => {
   const col = box.dataset.col;
   const length = document.querySelector('.piece.active').dataset.length;
   const colMax = Number(col) + Number(length);
-  const boxes = getSelectedBoxes(box);
+  const boxes = getSelectedHorizontalBoxes(box);
 
-  if (boxes.length < colMax - col) {
+  if (boxes.length < colMax - Number(col)) {
     boxes.forEach((box) => showInvalid(box));
   } else {
     boxes.forEach((box) => {
@@ -91,8 +131,38 @@ const changeOnHover = (box) => {
   }
 };
 
+const showVerticalBoxes = (box) => {
+  const row = box.dataset.row;
+  const length = document.querySelector('.piece.active').dataset.length;
+  const rowMax = Number(row) + Number(length);
+  const boxes = getSelectedVerticalBoxes(box);
+
+  if (boxes.length < rowMax - Number(row)) {
+    boxes.forEach((box) => showInvalid(box));
+  } else {
+    boxes.forEach((box) => {
+      if (box.classList.contains('placed')) {
+        showInvalid(box);
+      } else {
+        showValid(box);
+      }
+    });
+  }
+};
+
+const changeOnHover = (box) => {
+  revertPlacedBoxes();
+  const direction = getDirection();
+
+  if (direction === 'horizontal') {
+    showHorizontalBoxes(box);
+  } else {
+    showVerticalBoxes(box);
+  }
+};
+
 const displaySelectedBoxes = (box) => {
-  const boxes = getSelectedBoxes(box);
+  const boxes = getSelectedHorizontalBoxes(box);
   boxes.forEach((box) => box.classList.toggle('placed'));
 };
 
