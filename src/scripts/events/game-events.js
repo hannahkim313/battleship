@@ -1,5 +1,5 @@
-import { playRound } from '../modules/game';
-import { getColLetter } from '../modules/helper-functions';
+import { playRound } from '../logic/game';
+import { getColLetter } from '../logic/helper-functions';
 
 const emitGameEvents = () => {
   const main = document.querySelector('main');

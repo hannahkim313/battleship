@@ -1,16 +1,10 @@
-import Ship from '../modules/ship';
-import { storeInput } from '../modules/game';
-import { getColLetter } from '../modules/helper-functions';
-import {
-  changeOnHover,
-  disableInitialGameboard,
-  displaySelectedBoxes,
-  removeHoverEffect,
-  updatePieces,
-  toggleActivePiece,
-  showConfirmReset,
-  showRotationOptions,
-} from '../modules/dom';
+import Ship from '../logic/ship';
+import { storeInput } from '../logic/game';
+import { getColLetter } from '../logic/helper-functions';
+import pieces from '../dom/pieces';
+import initialGameboard from '../dom/initial-gameboard';
+import rotateModal from '../dom/rotate-modal';
+import resetModal from '../dom/reset-modal';
 
 const emitSetupEvents = () => {
   const shipPieces = document.querySelector('.pieces');
@@ -21,7 +15,7 @@ const emitSetupEvents = () => {
       e.target.closest('button').classList.contains('piece')
     ) {
       const selectedPiece = e.target.closest('button');
-      toggleActivePiece(selectedPiece);
+      pieces.toggleActive(selectedPiece);
     }
   });
 
@@ -32,14 +26,14 @@ const emitSetupEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('rotate')
     ) {
-      showRotationOptions();
+      rotateModal.show();
     }
 
     if (
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('reset')
     ) {
-      showConfirmReset();
+      resetModal.show();
     }
 
     if (
@@ -71,8 +65,8 @@ const emitSetupEvents = () => {
         return;
       }
 
-      displaySelectedBoxes(box);
-      updatePieces();
+      initialGameboard.showSelectedBoxes(box);
+      pieces.update();
     }
   });
 
@@ -85,11 +79,11 @@ const emitSetupEvents = () => {
       const piecesLeft = document.querySelectorAll('.piece:not(:disabled)');
 
       if (piecesLeft.length > 0) {
-        removeHoverEffect();
+        initialGameboard.removeHoverEffect();
         const box = e.target.closest('button');
-        changeOnHover(box);
+        initialGameboard.changeOnHover(box);
       } else {
-        disableInitialGameboard();
+        initialGameboard.disable();
       }
     }
   });

@@ -1,6 +1,6 @@
-import Player from '../modules/player';
-import Gameboard from '../modules/gameboard';
-import Ship from '../modules/ship';
+import Player from '../logic/player';
+import Gameboard from '../logic/gameboard';
+import Ship from '../logic/ship';
 
 const userGameboard = Gameboard();
 const userShip = Ship(2);

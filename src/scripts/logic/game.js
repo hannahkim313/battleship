@@ -1,14 +1,8 @@
 import Player from './player';
 import Gameboard from './gameboard';
-import {
-  changeActivePlayer,
-  renderGameboard,
-  updateOppGameboard,
-  updateUserGameboard,
-  disableOppGameboard,
-  enableOppGameboard,
-  showGameOver,
-} from './dom';
+import gamePage from '../dom/game-page';
+import opponentGameboard from '../dom/opponent-gameboard';
+import userGameboard from '../dom/user-gameboard';
 
 const userGameboard = Gameboard();
 // To-do: Implement a function that generates random coordinates for the
@@ -24,7 +18,7 @@ const userGameboard = Gameboard();
 // computerGameboard.placeShip(computerCruiser, ['8', 'h']);
 // computerGameboard.placeShip(computerSubmarine, ['1', 'e']);
 // computerGameboard.placeShip(computerDestroyer, ['4', 'i']);
-renderGameboard(userGameboard.getState());
+gamePage.renderUserGameboard(userGameboard.getState());
 const user = Player();
 const computer = Player();
 
@@ -34,31 +28,31 @@ const playRound = (coords) => {
   const userAttack = user.attack(computerGameboard, coords);
 
   if (userAttack !== null) {
-    updateOppGameboard(computerGameboard.getState(), coords);
-    changeActivePlayer();
+    opponentGameboard.update(computerGameboard.getState(), coords);
+    gamePage.changeActivePlayer();
 
     if (computerGameboard.isAllSunk()) {
-      showGameOver('user');
+      gamePage.showGameOver('user');
 
       return;
     }
 
-    disableOppGameboard();
+    opponentGameboard.disable();
 
     setTimeout(() => {
       computer.attack(userGameboard);
-      updateUserGameboard(userGameboard.getState(), computer.getLastMove());
+      userGameboard.update(userGameboard.getState(), computer.getLastMove());
       changeActivePlayer();
     }, 2000);
 
     setTimeout(() => {
       if (userGameboard.isAllSunk()) {
-        showGameOver('opponent');
+        gamePage.showGameOver('opponent');
 
         return;
       }
 
-      enableOppGameboard();
+      opponentGameboard.enable();
     }, 2000);
   }
 };

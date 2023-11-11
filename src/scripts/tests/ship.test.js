@@ -1,4 +1,4 @@
-import Ship from '../modules/ship';
+import Ship from '../logic/ship';
 
 test('check if ship is sunk after hitting less than total length', () => {
   const ship = Ship(3);
