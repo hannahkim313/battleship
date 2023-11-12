@@ -30,7 +30,9 @@ renderUserGameboard(userGameboard.getState());
 const user = Player();
 const computer = Player();
 
-const storeInput = (ship, coords) => userGameboard.placeShip(ship, coords);
+const storeInput = (ship, coords, isVertical) => {
+  return userGameboard.placeShip(ship, coords, isVertical);
+};
 
 const playRound = (coords) => {
   const userAttack = user.attack(computerGameboard, coords);

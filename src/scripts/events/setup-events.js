@@ -3,6 +3,7 @@ import { storeInput } from '../logic/game';
 import { getColLetter } from '../logic/helper-functions';
 import { toggleActivePiece, updatePieces } from '../dom/pieces';
 import {
+  getDirection,
   changeOnHover,
   removeHoverEffect,
   showSelectedBoxes,
@@ -61,16 +62,13 @@ const emitSetupEvents = () => {
       const length = Number(selectedPiece.dataset.length);
       const box = e.target.closest('button');
       const coords = [box.dataset.row, getColLetter(box.dataset.col)];
+      const isVertical = getDirection() === 'vertical';
 
-      // BUG: If rotation is set to 'vertical,' clicking on the gameboard
-      // to place a ship places it horizontally, thus storing the incorrect
-      // ship data to the game module.
-
-      if (storeInput(Ship(length), coords) === null) {
+      if (storeInput(Ship(length), coords, isVertical) === null) {
         return;
       }
 
-      showSelectedBoxes(box);
+      showSelectedBoxes(box, isVertical);
       updatePieces();
     }
   });

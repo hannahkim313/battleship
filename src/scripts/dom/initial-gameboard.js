@@ -134,9 +134,14 @@ const removeHoverEffect = () => {
   boxes.forEach((box) => (box.style.backgroundColor = defaultColor));
 };
 
-const showSelectedBoxes = (box) => {
-  const boxes = getSelectedHorizontalBoxes(box);
-  boxes.forEach((box) => box.classList.toggle('placed'));
+const showSelectedBoxes = (box, isVertical) => {
+  if (isVertical) {
+    const boxes = getSelectedVerticalBoxes(box);
+    boxes.forEach((box) => box.classList.toggle('placed'));
+  } else {
+    const boxes = getSelectedHorizontalBoxes(box);
+    boxes.forEach((box) => box.classList.toggle('placed'));
+  }
 };
 
 const disable = () => {
@@ -144,4 +149,10 @@ const disable = () => {
   boxes.forEach((box) => box.setAttribute('disabled', ''));
 };
 
-export { changeOnHover, removeHoverEffect, showSelectedBoxes, disable };
+export {
+  getDirection,
+  changeOnHover,
+  removeHoverEffect,
+  showSelectedBoxes,
+  disable,
+};
