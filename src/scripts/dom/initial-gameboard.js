@@ -111,7 +111,9 @@ const getDirection = () => {
 };
 
 const showPlacedBoxes = () => {
-  const placedBoxes = document.querySelectorAll('.box.placed');
+  const placedBoxes = document.querySelectorAll(
+    '.gameboard-container:nth-child(1) .box.placed'
+  );
   placedBoxes.forEach((box) => showValid(box));
 };
 
@@ -130,7 +132,9 @@ const defaultColor = 'var(--color-brand-1b)';
 
 const removeHoverEffect = () => {
   showPlacedBoxes();
-  const boxes = document.querySelectorAll('.box:not(.filler, .placed)');
+  const boxes = document.querySelectorAll(
+    '.gameboard-container:nth-child(1) .box:not(.filler, .placed)'
+  );
   boxes.forEach((box) => (box.style.backgroundColor = defaultColor));
 };
 
@@ -144,9 +148,16 @@ const showSelectedBoxes = (box, isVertical) => {
   }
 };
 
-const disable = () => {
-  const boxes = document.querySelectorAll('.box');
+const disableInitialGameboard = () => {
+  const boxes = document.querySelectorAll(
+    '.gameboard-container:nth-child(1) .box'
+  );
   boxes.forEach((box) => box.setAttribute('disabled', ''));
+};
+
+const hideInitialGameboard = () => {
+  const gameboard = document.querySelector('.gameboard-container');
+  gameboard.classList.toggle('hidden');
 };
 
 export {
@@ -154,5 +165,6 @@ export {
   changeOnHover,
   removeHoverEffect,
   showSelectedBoxes,
-  disable,
+  disableInitialGameboard,
+  hideInitialGameboard,
 };

@@ -7,7 +7,7 @@ import {
   changeOnHover,
   removeHoverEffect,
   showSelectedBoxes,
-  disable,
+  disableInitialGameboard,
 } from '../dom/initial-gameboard';
 import { showRotateModal } from '../dom/rotate-modal';
 import { showResetModal } from '../dom/reset-modal';
@@ -45,7 +45,7 @@ const emitSetupEvents = () => {
 
     if (
       e.target.closest('button') &&
-      e.target.closest('button').classList.contains('start')
+      e.target.closest('button').classList.contains('start-game')
     ) {
       showStartGame();
     }
@@ -87,7 +87,7 @@ const emitSetupEvents = () => {
         const box = e.target.closest('button');
         changeOnHover(box);
       } else {
-        disable();
+        disableInitialGameboard();
       }
     }
   });

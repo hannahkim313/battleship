@@ -1,3 +1,10 @@
+const showGamePage = () => {
+  const gameboards = document.querySelectorAll(
+    '.gameboard-container:not(:nth-child(1))'
+  );
+  gameboards.forEach((gameboard) => gameboard.classList.toggle('hidden'));
+};
+
 const renderUserGameboard = (state) => {
   state.forEach((row, rowIndex) => {
     row.forEach((col, colIndex) => {
@@ -47,4 +54,4 @@ const showGameOver = (winner) => {
   dialog.showModal();
 };
 
-export { renderUserGameboard, changeActivePlayer, showGameOver };
+export { showGamePage, renderUserGameboard, changeActivePlayer, showGameOver };

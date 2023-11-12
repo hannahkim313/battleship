@@ -30,4 +30,40 @@ const showStartGame = () => {
   dialog.showModal();
 };
 
-export { showStartGame };
+const isReady = () => {
+  const pieces = document.querySelectorAll('.piece');
+  return Array.from(pieces).every((piece) => piece.childElementCount > 1);
+};
+
+const showInvalid = () => {
+  const message = document.querySelector('dialog.start-game p');
+  message.textContent = 'Please place all of yours ships.';
+  const buttons = document.querySelectorAll('dialog.start-game button');
+  buttons.forEach((button) => button.remove());
+  const back = document.createElement('button');
+  back.type = 'button';
+  back.classList.add('back');
+  back.textContent = 'Back';
+  const form = document.querySelector('dialog.start-game form');
+  form.appendChild(back);
+};
+
+const resetStartGameModal = () => {
+  const message = document.querySelector('dialog.start-game p');
+  message.textContent = 'Are you ready to start the game?';
+  const back = document.querySelector('dialog.start-game .back');
+  back.remove();
+  const start = document.createElement('button');
+  start.type = 'submit';
+  start.classList.add('start');
+  start.textContent = 'Start';
+  const cancel = document.createElement('button');
+  cancel.type = 'button';
+  cancel.classList.add('cancel');
+  cancel.textContent = 'Cancel';
+  const form = document.querySelector('dialog.start-game form');
+  form.appendChild(start);
+  form.appendChild(cancel);
+};
+
+export { showStartGame, isReady, showInvalid, resetStartGameModal };
