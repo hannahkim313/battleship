@@ -115,6 +115,20 @@ test('place a ship of length 2 (vertically) in the bottom right corner', () => {
   ]);
 });
 
+test('randomly place ships', () => {
+  const gameboard = Gameboard();
+  gameboard.placeRandom();
+  const state = gameboard.getState();
+  const occupied = [];
+
+  state.forEach((row) => {
+    const values = row.filter((value) => value !== 0);
+    values.forEach((value) => occupied.push(value));
+  });
+
+  expect(occupied.length).toBe(17);
+});
+
 test('place an attack that hits a ship', () => {
   const gameboard = Gameboard();
   const ship1 = Ship(2);

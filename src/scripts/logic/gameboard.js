@@ -1,4 +1,5 @@
-import { getColNum } from './helper-functions';
+import { getColNum, getRandomNum, generateCoords } from './helper-functions';
+import Ship from './ship';
 
 const Gameboard = () => {
   const ships = [];
@@ -62,6 +63,32 @@ const Gameboard = () => {
     }
   };
 
+  const getRandomDirection = () => {
+    const num = getRandomNum(1, 3);
+
+    if (num === 1) {
+      return 'horizontal';
+    } else {
+      return 'vertical';
+    }
+  };
+
+  const placeRandom = () => {
+    const movesMade = [];
+    const ships = [Ship(5), Ship(4), Ship(3), Ship(3), Ship(2)];
+    let coords = generateCoords(movesMade);
+
+    ships.forEach((ship) => {
+      const isVertical = getRandomDirection() === 'vertical';
+
+      while (placeShip(ship, coords, isVertical) === null) {
+        coords = generateCoords(movesMade);
+      }
+
+      movesMade.push(coords);
+    });
+  };
+
   const receiveAttack = (coords) => {
     const [row, letter] = coords;
     const col = getColNum(letter);
@@ -84,6 +111,7 @@ const Gameboard = () => {
 
   return {
     placeShip,
+    placeRandom,
     receiveAttack,
     isAllSunk,
     getState,
