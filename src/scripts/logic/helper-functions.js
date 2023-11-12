@@ -1,7 +1,7 @@
 const getColNum = (letter) => {
   const letters = 'abcdefghij';
 
-  return letters.indexOf(letter) + 1;
+  return `${letters.indexOf(letter.toLowerCase()) + 1}`;
 };
 
 const getColLetter = (colNum) => {
@@ -10,4 +10,26 @@ const getColLetter = (colNum) => {
   return letters[colNum - 1];
 };
 
-export { getColNum, getColLetter };
+const getRandomNum = (minInclusive, maxExclusive) => {
+  const min = Math.ceil(minInclusive);
+  const max = Math.floor(maxExclusive);
+
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+const generateCoords = (movesMade = []) => {
+  const letters = 'abcdefghij';
+  const coords = [`${getRandomNum(1, 10)}`, letters[getRandomNum(1, 10)]];
+
+  if (movesMade.length === 0) {
+    movesMade.push(coords);
+  } else if (
+    movesMade.some((move) => JSON.stringify(move) === JSON.stringify(coords))
+  ) {
+    return generateCoords(movesMade);
+  }
+
+  return coords;
+};
+
+export { getColNum, getColLetter, getRandomNum, generateCoords };
