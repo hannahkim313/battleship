@@ -11,6 +11,7 @@ import {
 } from '../dom/initial-gameboard';
 import { showRotateModal } from '../dom/rotate-modal';
 import { showResetModal } from '../dom/reset-modal';
+import { showStartGame } from '../dom/start-game-modal';
 
 const emitSetupEvents = () => {
   const shipPieces = document.querySelector('.pieces');
@@ -46,7 +47,7 @@ const emitSetupEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('start')
     ) {
-      // do something
+      showStartGame();
     }
   });
 
