@@ -1,4 +1,4 @@
-import rotateModal from '../dom/rotate-modal';
+import { setRotation } from '../dom/rotate-modal';
 
 const emitRotateModalEvents = () => {
   const body = document.querySelector('body');
@@ -8,7 +8,7 @@ const emitRotateModalEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('horizontal')
     ) {
-      rotateModal.setRotation('horizontal');
+      setRotation('horizontal');
       const modal = document.querySelector('dialog.rotate');
       modal.close();
     }
@@ -17,7 +17,7 @@ const emitRotateModalEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('vertical')
     ) {
-      rotateModal.setRotation('vertical');
+      setRotation('vertical');
       const modal = document.querySelector('dialog.rotate');
       modal.close();
     }

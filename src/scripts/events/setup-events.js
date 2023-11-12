@@ -1,10 +1,15 @@
 import Ship from '../logic/ship';
 import { storeInput } from '../logic/game';
 import { getColLetter } from '../logic/helper-functions';
-import pieces from '../dom/pieces';
-import initialGameboard from '../dom/initial-gameboard';
-import rotateModal from '../dom/rotate-modal';
-import resetModal from '../dom/reset-modal';
+import { toggleActivePiece, updatePieces } from '../dom/pieces';
+import {
+  changeOnHover,
+  removeHoverEffect,
+  showSelectedBoxes,
+  disable,
+} from '../dom/initial-gameboard';
+import { showRotateModal } from '../dom/rotate-modal';
+import { showResetModal } from '../dom/reset-modal';
 
 const emitSetupEvents = () => {
   const shipPieces = document.querySelector('.pieces');
@@ -15,7 +20,7 @@ const emitSetupEvents = () => {
       e.target.closest('button').classList.contains('piece')
     ) {
       const selectedPiece = e.target.closest('button');
-      pieces.toggleActive(selectedPiece);
+      toggleActivePiece(selectedPiece);
     }
   });
 
@@ -26,14 +31,14 @@ const emitSetupEvents = () => {
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('rotate')
     ) {
-      rotateModal.show();
+      showRotateModal();
     }
 
     if (
       e.target.closest('button') &&
       e.target.closest('button').classList.contains('reset')
     ) {
-      resetModal.show();
+      showResetModal();
     }
 
     if (
@@ -65,8 +70,8 @@ const emitSetupEvents = () => {
         return;
       }
 
-      initialGameboard.showSelectedBoxes(box);
-      pieces.update();
+      showSelectedBoxes(box);
+      updatePieces();
     }
   });
 
@@ -79,11 +84,11 @@ const emitSetupEvents = () => {
       const piecesLeft = document.querySelectorAll('.piece:not(:disabled)');
 
       if (piecesLeft.length > 0) {
-        initialGameboard.removeHoverEffect();
+        removeHoverEffect();
         const box = e.target.closest('button');
-        initialGameboard.changeOnHover(box);
+        changeOnHover(box);
       } else {
-        initialGameboard.disable();
+        disable();
       }
     }
   });
