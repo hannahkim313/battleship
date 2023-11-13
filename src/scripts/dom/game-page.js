@@ -23,7 +23,9 @@ const renderUserGameboard = (state) => {
 
 const changeActivePlayer = () => {
   const currentTurn = document.querySelector('.turn');
-  const nextTurn = document.querySelector('h2:not(.turn)');
+  const nextTurn = document.querySelector(
+    '.gameboard-container:not(:nth-child(1)) h2:not(.turn)'
+  );
   currentTurn.classList.toggle('turn');
   nextTurn.classList.toggle('turn');
 };

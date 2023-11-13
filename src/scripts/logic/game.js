@@ -14,16 +14,16 @@ import {
 } from '../dom/gameboards';
 import { hideInitialGameboard } from '../dom/initial-gameboard';
 
-const userGameboard = Gameboard();
 const user = Player();
 const computer = Player();
+const userGameboard = Gameboard();
+const computerGameboard = Gameboard();
 
 const startGame = () => {
   hideInitialGameboard();
   showGamePage();
   renderUserGameboard(userGameboard.getState());
-  // To-do: Implement a function that generates random coordinates for the
-  // computer to place their ships.
+  computerGameboard.placeRandom();
 };
 
 const storeInput = (ship, coords, isVertical) => {

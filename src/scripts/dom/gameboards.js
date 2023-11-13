@@ -44,7 +44,9 @@ const disableOpponentGameboard = () => {
 };
 
 const enableOpponentGameboard = () => {
-  const gameboardLabel = document.querySelector('h2:not(.turn)');
+  const gameboardLabel = document.querySelector(
+    '.gameboard-container:not(:nth-child(1)) h2:not(.turn)'
+  );
   const boxes = gameboardLabel.closest('article').querySelectorAll('.box');
   boxes.forEach((box) => box.removeAttribute('disabled'));
 };
