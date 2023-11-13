@@ -37,7 +37,7 @@ const isReady = () => {
 
 const showInvalid = () => {
   const message = document.querySelector('dialog.start-game p');
-  message.textContent = 'Please place all of yours ships.';
+  message.textContent = 'Please place all of your ships.';
   const buttons = document.querySelectorAll('dialog.start-game button');
   buttons.forEach((button) => button.remove());
   const back = document.createElement('button');
