@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+<g transform="matrix(1 0 0 1 540 540)" id="a7c37d21-c3f1-478a-b80e-d07a16a2e66d"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="cdd37882-2534-4422-a65a-0bf8e3290f3e"  >
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="84bc8fb3-d75c-4ee8-9ed8-ed1ffcaa8346"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(56,67,81); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-480, 490)" d="M 200 -200 Q 167 -200 143.5 -223.5 Q 120 -247 120 -280 L 120 -640 Q 103 -640 91.5 -651.5 Q 80 -663 80 -680 Q 80 -697 91.5 -708.5 Q 103 -720 120 -720 L 240 -720 L 240 -740 Q 240 -757 251.5 -768.5 Q 263 -780 280 -780 L 360 -780 Q 377 -780 388.5 -768.5 Q 400 -757 400 -740 L 400 -720 L 520 -720 Q 537 -720 548.5 -708.5 Q 560 -697 560 -680 Q 560 -663 548.5 -651.5 Q 537 -640 520 -640 L 520 -280 Q 520 -247 496.5 -223.5 Q 473 -200 440 -200 L 200 -200 Z M 640 -240 Q 623 -240 611.5 -251.5 Q 600 -263 600 -280 Q 600 -297 611.5 -308.5 Q 623 -320 640 -320 L 720 -320 Q 737 -320 748.5 -308.5 Q 760 -297 760 -280 Q 760 -263 748.5 -251.5 Q 737 -240 720 -240 L 640 -240 Z M 640 -400 Q 623 -400 611.5 -411.5 Q 600 -423 600 -440 Q 600 -457 611.5 -468.5 Q 623 -480 640 -480 L 800 -480 Q 817 -480 828.5 -468.5 Q 840 -457 840 -440 Q 840 -423 828.5 -411.5 Q 817 -400 800 -400 L 640 -400 Z M 640 -560 Q 623 -560 611.5 -571.5 Q 600 -583 600 -600 Q 600 -617 611.5 -628.5 Q 623 -640 640 -640 L 840 -640 Q 857 -640 868.5 -628.5 Q 880 -617 880 -600 Q 880 -583 868.5 -571.5 Q 857 -560 840 -560 L 640 -560 Z M 200 -640 L 200 -280 L 440 -280 L 440 -640 L 200 -640 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+</svg>
