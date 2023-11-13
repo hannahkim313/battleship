@@ -19,7 +19,7 @@ const getRandomNum = (minInclusive, maxExclusive) => {
 
 const generateCoords = (movesMade = []) => {
   const letters = 'abcdefghij';
-  const coords = [`${getRandomNum(1, 10)}`, letters[getRandomNum(1, 10)]];
+  const coords = [`${getRandomNum(1, 11)}`, letters[getRandomNum(0, 10)]];
 
   if (movesMade.length === 0) {
     movesMade.push(coords);

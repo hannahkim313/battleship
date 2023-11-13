@@ -29,14 +29,14 @@ test('check if randomly generated coordinate is a valid coordinate', () => {
   const [row, letter] = coords;
   const col = getColNum(letter);
   expect(Number(row)).toBeGreaterThanOrEqual(1);
-  expect(Number(row)).toBeLessThanOrEqual(10);
+  expect(Number(row)).toBeLessThan(10);
   expect(Number(col)).toBeGreaterThanOrEqual(1);
-  expect(Number(col)).toBeLessThanOrEqual(10);
+  expect(Number(col)).toBeLessThan(10);
 });
 
 test('check if randomly generated coordinate is not a duplicate', () => {
   const movesMade = [['1', 'a']];
-  movesMade.push(generateCoords(movesMade));
+  generateCoords(movesMade);
   const stringified = movesMade.map((coords) => JSON.stringify(coords));
   const set = new Set(stringified);
   expect(set.size).toBe(movesMade.length);
