@@ -23,11 +23,17 @@ const generateCoords = (movesMade = []) => {
 
   if (movesMade.length === 0) {
     movesMade.push(coords);
-  } else if (
+
+    return coords;
+  }
+
+  if (
     movesMade.some((move) => JSON.stringify(move) === JSON.stringify(coords))
   ) {
     return generateCoords(movesMade);
   }
+
+  movesMade.push(coords);
 
   return coords;
 };
