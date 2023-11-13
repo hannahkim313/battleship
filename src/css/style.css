@@ -50,13 +50,12 @@ button:hover {
 /******************************************************************************/
 
 header {
+  text-align: center;
   color: var(--color-text-1-inverted);
   background-color: var(--color-brand-1a);
   padding: 1rem;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  display: flex;
-  gap: 1rem;
 }
 
 .logo {
@@ -371,10 +370,6 @@ footer img {
 /******************************************************************************/
 
 @media screen and (max-width: 850px) {
-  header {
-    justify-content: center;
-  }
-
   main {
     display: grid;
     grid-template-columns: auto;
